@@ -49,7 +49,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       # 🔹 Tag and Push to Amazon ECR
-      - name: Push image to Amazon ECR # use "aws sts get-caller-identity" for account ID
+      - name: Push image to Amazon ECR # use "aws sts get-caller-identity" for account ID ..
         run: |
           AWS_ACCOUNT_ID=${{ secrets.AWS_ACCOUNT_ID }} 
           REGION=us-east-1
