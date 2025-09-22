@@ -16,10 +16,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build image
-        run: docker build -t donpete007/portfolio .
+        run: | 
+              docker build -t donpete007/portfolio:${{github.run_number}} .
+              docker build -t donpete007/portfolio .
 
       
       - name: push images
         run: | 
             docker login -u donpete007 -p ${{secrets.REGISTRY_PASS}}
+            docker push donpete007/portfolio:${{github.run_number}}
             docker push donpete007/portfolio
+            
