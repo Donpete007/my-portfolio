@@ -14,8 +14,9 @@ env:
     python_version: 3.11
     IMAGES_NAME: portfolio
     AWS_REGION: us-east-1
-    ACCOUNT_ID: ${{ secrets.ACCOUNT_id}}
-    ECR_REPO: $ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE__amazonaws.com/portfolio
+    ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+    ECR_REPO: ${{ env.ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.IMAGES_NAME }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
